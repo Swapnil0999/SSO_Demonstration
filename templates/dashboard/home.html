@@ -1,0 +1,76 @@
+{% extends 'account/base.html' %}
+{% load socialaccount %}
+{% load static %}
+
+{% block content %}
+<div class="text-center">
+    <h2>My Top 5 Anime</h2>
+
+    <style>
+        
+        .anime-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .anime-item {
+            width: calc(20% - 20px); /* Adjust the width as needed */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .anime-item img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .anime-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .anime-item p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+
+    <div class="anime-container">
+        <div class="anime-item">
+            <img src="{% static 'images/one_piece.png' %}" alt="Anime 1">
+            <p>One Piece</p>
+        </div>
+        <div class="anime-item">
+            <img src="{% static 'images/aot.jpeg' %}" alt="Anime 2">
+            <p>Attack On Titan</p>
+        </div>
+        <div class="anime-item">
+            <img src="{% static 'images/deathnote.jpeg' %}" alt="Anime 3">
+            <p>Death Note</p>
+        </div>
+        <div class="anime-item">
+            <img src="{% static 'images/codegeass.jpeg' %}" alt="Anime 4">
+            <p>Code Geass</p>
+        </div>
+        <div class="anime-item">
+            <img src="{% static 'images/parasite.jpeg' %}" alt="Anime 5">
+            <p>Parasite</p>
+        </div>
+    </div>
+
+    <p>Hello {{ user.first_name }}!</p>
+    <p>Your Username: {{ user }}</p>
+
+    <div>
+        <a class="btn btn-dark mt-3" href="{% url 'socialaccount_connections' %}">Settings</a>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
